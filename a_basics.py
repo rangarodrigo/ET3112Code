@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Opening and Diplaying Images
+# In[ ]:
+
+
+# Opening and Diplaying Images
+
 
 # In[2]:
 
@@ -117,7 +121,7 @@ import matplotlib.pyplot as plt
 
 im = np.zeros((6,8, 3),dtype=np.uint8)
 
-im[2,3] = [255, 0, 0]
+im[2:4,3:5] = [200, 20, 100]
 print(im[2,3])
 fig, ax = plt.subplots()
 ax.imshow(im)
@@ -172,6 +176,19 @@ plt.show()
 print(img.shape)
 print(img.size)
 print(img.dtype)
+
+
+# In[27]:
+
+
+get_ipython().run_line_magic('load_ext', 'Cython')
+  
+
+
+# In[28]:
+
+
+get_ipython().run_cell_magic('cython', '--annotate', '\ncdef int a = 0\nfor i in range(10):\n    a += i\nprint(a)')
 
 
 # # Increasing the Brightness
@@ -276,4 +293,10 @@ plt.imshow(img)
 plt.title('After Zeroing Planes')
 plt.xticks([]), plt.yticks([])
 plt.show()
+
+
+# In[ ]:
+
+
+
 
